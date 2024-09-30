@@ -4,10 +4,14 @@ public class Main {
     public static void main(String[] args) {
 
         String str;
+        String value;
         while(true) {
             System.out.print("SHELL > ");
             Scanner sc = new Scanner(System.in);
+
+
             str = sc.next();
+
 
             if (str.equals("exit")) {
                 System.out.println("BYE");
@@ -27,11 +31,16 @@ public class Main {
             }
             else if (str.equals("fullwrite")) {
 
+                value = sc.next();
+
             }
             else if (str.equals("read")) {
+                int num = sc.nextInt();
 
             }
             else if (str.equals("write")) {
+                int num = sc.nextInt();
+                value = sc.next();
 
             }
             else{
