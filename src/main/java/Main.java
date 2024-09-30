@@ -33,13 +33,22 @@ public class Main {
 
                 value = sc.next();
 
+
             }
             else if (str.equals("read")) {
                 int num = sc.nextInt();
+                if(num<0 || num>99){
+                    System.out.println("LBA 범위 초과");
+                    continue;
+                }
 
             }
             else if (str.equals("write")) {
                 int num = sc.nextInt();
+                if(num<0 || num>99){
+                    System.out.println("LBA 범위 초과");
+                    continue;
+                }
                 value = sc.next();
 
             }
