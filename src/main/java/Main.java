@@ -1,16 +1,20 @@
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         String str;
         String value;
         while(true) {
             System.out.print("SHELL > ");
             Scanner sc = new Scanner(System.in);
-
-
+            String jarFilePath = "/Users/iyunju/SSD/out/artifacts/untitled_jar/untitled.jar";
+            String javaCommand = "java";
             str = sc.next();
+            String[] command = {};
+
+            ProcessBuilder pb;
 
 
             if (str.equals("exit")) {
@@ -27,6 +31,9 @@ public class Main {
                 System.out.println("없는 명령어를 수행하는 경우 INVALID COMMAND가 출력됩니다.");
             }
             else if (str.equals("fullread")) {
+                command = new String[]{javaCommand, "-jar", jarFilePath, str};
+                pb = new ProcessBuilder(command);
+                Process process = pb.start();
 
             }
             else if (str.equals("fullwrite")) {
@@ -36,21 +43,26 @@ public class Main {
 
             }
             else if (str.equals("read")) {
-                int num = sc.nextInt();
-                if(num<0 || num>99){
-                    System.out.println("LBA 범위 초과");
-                    continue;
-                }
+                String num = sc.next();
+//                if(num<0 || num>99){
+//                    System.out.println("LBA 범위 초과");
+//                    continue;
+//                }
 
+                command = new String[]{javaCommand, "-jar", jarFilePath, str, num };
+                pb = new ProcessBuilder(command);
+                Process process = pb.start();
             }
             else if (str.equals("write")) {
-                int num = sc.nextInt();
-                if(num<0 || num>99){
-                    System.out.println("LBA 범위 초과");
-                    continue;
-                }
+                String num = sc.next();
+//                if(num<0 || num>99){
+//                    System.out.println("LBA 범위 초과");
+//                    continue;
+//                }
                 value = sc.next();
-
+                command = new String[]{javaCommand, "-jar", jarFilePath, str, num, value};
+                pb = new ProcessBuilder(command);
+                Process process = pb.start();
             }
             else{
                 System.out.println("INVALID COMMAND");
