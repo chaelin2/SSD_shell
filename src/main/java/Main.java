@@ -37,8 +37,11 @@ public class Main {
 
             }
             else if (str.equals("fullwrite")) {
-
                 value = sc.next();
+                command = new String[]{javaCommand, "-jar", jarFilePath, str,value};
+                pb = new ProcessBuilder(command);
+                Process process = pb.start();
+
 
 
             }
@@ -72,3 +75,4 @@ public class Main {
 
     }
 }
+
